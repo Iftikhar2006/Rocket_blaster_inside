@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd8t06jdp0cuc"]
+
+[ext_resource type="Script" uid="uid://cgw4g4d2aaeh2" path="res://scripts/big_enemy.gd" id="1_5tilj"]
+[ext_resource type="Texture2D" uid="uid://cdnyckoxv8710" path="res://assets/ships/red ships/ship_0001.png" id="1_7eefd"]
+
+[node name="BigEnemy" type="Area2D"]
+scale = Vector2(3, 3)
+collision_layer = 3
+script = ExtResource("1_5tilj")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -0.333333)
+polygon = PackedVector2Array(0, 10, -3, 6, -3, 2.33333, -12, 2.33333, -13, 1.33333, -13, -2.66667, 12.6667, -2.66667, 13, 1.33333, 12, 2.33333, 3, 2.33333, 3, 6)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_7eefd")
+flip_v = true
+
+[node name="CoolDown" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="LastBreath" type="Timer" parent="."]
+
+[connection signal="timeout" from="CoolDown" to="." method="_on_cool_down_timeout"]
+[connection signal="timeout" from="LastBreath" to="." method="_on_last_breath_timeout"]

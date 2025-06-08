@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdwdl0b3ryj58"]
+
+[ext_resource type="Script" uid="uid://dhfldyfwk4f8u" path="res://scripts/main.gd" id="1_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://dsnl8it3ochuj" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="Texture2D" uid="uid://b4fj2ugpbf6l2" path="res://assets/InfinteBackground.png" id="6_tefeu"]
+[ext_resource type="Script" uid="uid://b72k0r1b5kn1o" path="res://scripts/back_side.gd" id="7_o6xl0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tipki"]
+size = Vector2(1802, 4)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_0wfyh")
+
+[node name="Player" parent="." instance=ExtResource("1_o5qli")]
+position = Vector2(0, 250)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Spawn_rate" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="BG" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="BG"]
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer"]
+visible = false
+texture = ExtResource("6_tefeu")
+
+[node name="BackSide" type="Area2D" parent="."]
+position = Vector2(1, 339)
+collision_mask = 2
+script = ExtResource("7_o6xl0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackSide"]
+shape = SubResource("RectangleShape2D_tipki")
+
+[connection signal="timeout" from="Spawn_rate" to="." method="_on_spawn_rate_timeout"]
+[connection signal="area_entered" from="BackSide" to="BackSide" method="_on_area_entered"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bffbss3jru7ry"]
+
+[ext_resource type="Texture2D" uid="uid://bpxlflgp68h08" path="res://assets/ships/green ships/ship_0002.png" id="1_am7dx"]
+[ext_resource type="Script" uid="uid://bef4cfn5jd4o" path="res://scripts/friend.gd" id="1_s8sfs"]
+
+[node name="Friend" type="Area2D"]
+scale = Vector2(3, 3)
+collision_layer = 3
+script = ExtResource("1_s8sfs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_am7dx")
+flip_v = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-14, -6, -14, -0.333333, 0, 10, 14, 0, 14, -6)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

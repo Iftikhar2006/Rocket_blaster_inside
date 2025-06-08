@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqu7wwjydwnt5"]
+
+[ext_resource type="Script" uid="uid://d4b66dotwrkxf" path="res://scripts/area_2d.gd" id="1_nhxoo"]
+[ext_resource type="Texture2D" uid="uid://dubfba2w5o3v0" path="res://assets/pointers/spr_coin_roj.png" id="1_svk5y"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nhxoo"]
+radius = 4.5
+height = 14.0
+
+[node name="RedPointer" type="Area2D"]
+scale = Vector2(2, 2)
+collision_layer = 2
+script = ExtResource("1_nhxoo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_svk5y")
+region_enabled = true
+region_rect = Rect2(35, 0, 10, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_nhxoo")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

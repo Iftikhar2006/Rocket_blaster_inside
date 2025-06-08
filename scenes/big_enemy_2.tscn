@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://hk7578eemyya"]
+
+[ext_resource type="Texture2D" uid="uid://cqx8hxgx1mmrd" path="res://assets/ships/yellow ships/ship_0003.png" id="1_id67o"]
+[ext_resource type="Script" uid="uid://dr02no5msjcij" path="res://scripts/big_enemy_2.gd" id="1_r8dlx"]
+
+[node name="BigEnemy2" type="Area2D"]
+texture_filter = 1
+scale = Vector2(3, 3)
+collision_layer = 3
+script = ExtResource("1_r8dlx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_id67o")
+flip_v = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-3, -7, 3, -7, 13.6667, -5, 14, 2.66667, 3, 3, 0, 10.3333, -3, 3, -14, 2.66667, -14.3333, -5)
+
+[node name="CoolDown" type="Timer" parent="."]
+
+[node name="LastBreath" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="CoolDown" to="." method="_on_cool_down_timeout"]
+[connection signal="timeout" from="LastBreath" to="." method="_on_last_breath_timeout"]
