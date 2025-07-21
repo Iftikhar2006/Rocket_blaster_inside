@@ -6,8 +6,10 @@ const left_offset : int = -300
 const right_offset : int = 300
 const BULLET = preload("res://scenes/bullet.tscn")
 var is_shoooting : bool = false
-var health : int = 1000
+var health : int = 50
 var is_hurt : bool = false
+@onready var health_label: Label = $"../HealthLabel"
+
 
 
 func _physics_process(delta: float) -> void:
@@ -25,6 +27,7 @@ func _physics_process(delta: float) -> void:
 		$Cooldown.start()
 		is_shoooting=true
 	move_and_slide()
+	health_label.text = "Health:"+ str(health)
 	
 
 
@@ -58,7 +61,7 @@ func hit():
 			$hurt.start()
 			is_hurt = true
 			SPEED = 100
-		print("player"+ str(health))
+		#print("player"+ str(health))
 	else:
 		game_over()
 

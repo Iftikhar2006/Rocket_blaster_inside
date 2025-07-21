@@ -27,7 +27,10 @@ func hit():
 	speed = move_toward(50,100,10)
 	if health:
 		health -= 1
-	print("Enemy" + str(health) )
+	#print("Enemy" + str(health) )
+	if health==0:
+		var main = get_tree().get_current_scene()
+		main.IncreaseScore(10)
 
 
 #infinite loop using timer for shooting
@@ -45,5 +48,5 @@ func _on_cool_down_timeout() -> void:
 
 
 func _on_last_breath_timeout() -> void:
-	print("i died")
+	#print("i died")
 	queue_free()

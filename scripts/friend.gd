@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 	position.y += speed*delta
 	if health == 0:
 		is_dying = true
-		print("I died")
+		#print("I died")
 		queue_free() 
 
 
@@ -25,10 +25,13 @@ func hit():
 	speed = move_toward(50,100,10)
 	if health:
 		health -= 1
-	print("Friend" + str(health) )
+	#print("Friend" + str(health) )
 	if not hostile:
 		hostile = true
 		$Timer.start()
+	if health==0:
+		var main = get_tree().get_current_scene()
+		main.IncreaseScore(-20)
 
 
 #infinite loop using timer for shooting

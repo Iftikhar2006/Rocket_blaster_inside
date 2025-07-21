@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4fj2ugpbf6l2"
-path="res://.godot/imported/InfinteBackground.png-3ecf8b39b2083b1d50144d6e16b5a0fb.ctex"
+uid="uid://cudymuvw7xlfw"
+path="res://.godot/imported/BG_for_SpaceShooter.jpg-09177e4b54ff11405f2880fe2cbc075a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/InfinteBackground.png"
-dest_files=["res://.godot/imported/InfinteBackground.png-3ecf8b39b2083b1d50144d6e16b5a0fb.ctex"]
+source_file="res://assets/BG_for_SpaceShooter.jpg"
+dest_files=["res://.godot/imported/BG_for_SpaceShooter.jpg-09177e4b54ff11405f2880fe2cbc075a.ctex"]
 
 [params]
 

@@ -12,16 +12,16 @@ func _process(delta: float) -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
-	print(area)
+	#print(area)
 	if str(area.name) =="BigEnemy":
 		area.queue_free()
-		print(-1)
+		#print(-1)
 		pass
 	if str(area.name) =="BigEnemy2":
 		area.queue_free()
-		print(-1)
+		#print(-1)
 		pass
 	if str(area.name) =="Friend":
 		area.queue_free()
-		print(+1)
+		#print(+1)
 		pass

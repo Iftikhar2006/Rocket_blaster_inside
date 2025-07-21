@@ -1,6 +1,9 @@
 extends Node2D
 const player_start_position := Vector2i(0,250)
 const camera_start_position := Vector2i(0,0)
+@onready var score_label: Label = $ScoreLabel
+@onready var health_label: Label = $HealthLabel
+const Max_score:int = 100
 const speed : int = 200
 const left_offset : int = -300
 const right_offset : int = 300
@@ -14,18 +17,21 @@ const Green = preload("res://scenes/green_pointer.tscn")
 var poniters := [Red,Yellow,Green]
 var plane_types := [BIG_ENEMY,BIG_ENEMY_2,FRIEND]
 var entity_type = "Boundary"
+var score : int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Player.position = player_start_position
 	$Camera2D.position = camera_start_position 
 	$Spawn_rate.start()
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if score==Max_score:
+		print("TAsk COmpleted")
 	
-	pass
 
 
 
@@ -45,3 +51,8 @@ func _on_spawn_rate_timeout() -> void:
 		add_child(pointer)
 		add_child(plane)
 	$Spawn_rate.start()
+
+func IncreaseScore( int ):
+	score = score + int
+	score_label.text = "Score:" + str(score)
+	print("score-" + str(score))
