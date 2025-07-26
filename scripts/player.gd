@@ -63,7 +63,8 @@ func hit():
 			SPEED = 100
 		#print("player"+ str(health))
 	else:
-		game_over()
+		call_deferred("game_over")
+
 
 
 #Events on game over

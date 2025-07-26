@@ -61,7 +61,12 @@ func IncreaseScore( int ):
 
 
 func _on_countdown_timeout() -> void:
-	get_tree().change_scene_to_file("res://scenes/end_1.tscn")
+	call_deferred("game_over")
+
 
 func show_time_left():
 	pass
+
+func game_over():
+	print("GAme over")
+	get_tree().change_scene_to_file("res://scenes/end_1.tscn")
