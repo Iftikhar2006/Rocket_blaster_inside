@@ -17,6 +17,7 @@ const Green = preload("res://scenes/green_pointer.tscn")
 var poniters := [Red,Yellow,Green]
 var plane_types := [BIG_ENEMY,BIG_ENEMY_2,FRIEND]
 @onready var countdown: Timer = $Countdown
+@onready var countdown_label: Label = $CountdownLabel
 var entity_type = "Boundary"
 var score : int = 0
 
@@ -33,7 +34,7 @@ func _process(delta: float) -> void:
 	if score==Max_score:
 		print("TAsk COmpleted")
 		get_tree().change_scene_to_file("res://scenes/end_2.tscn")
-		show_time_left()
+	show_time_left()
 
 
 
@@ -65,6 +66,23 @@ func _on_countdown_timeout() -> void:
 
 
 func show_time_left():
+	var time_left = countdown.time_left
+	var rounded_time =int(round(time_left)) 
+	#print(rounded_time)  
+	var minute = int(rounded_time/60)
+	var sec = rounded_time - minute*60
+	countdown_label.text = "Time left: " + str(minute) + ":" + str(sec)
+	if rounded_time <31:
+		pulse()
+	
+ # function to flicker the timer as red to show warning for low time
+func pulse():
+	var time_left = countdown.time_left
+	var rounded_time =int(round(time_left*10)) 
+	if rounded_time%2 == 0:
+		countdown_label.add_theme_color_override("font_color",Color.RED)
+	else:
+		countdown_label.add_theme_color_override("font_color",Color.WHITE)
 	pass
 
 func game_over():
