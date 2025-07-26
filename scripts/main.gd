@@ -16,6 +16,7 @@ const Yellow = preload("res://scenes/yellow_pointer.tscn")
 const Green = preload("res://scenes/green_pointer.tscn")
 var poniters := [Red,Yellow,Green]
 var plane_types := [BIG_ENEMY,BIG_ENEMY_2,FRIEND]
+@onready var countdown: Timer = $Countdown
 var entity_type = "Boundary"
 var score : int = 0
 
@@ -31,7 +32,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if score==Max_score:
 		print("TAsk COmpleted")
-	
+		get_tree().change_scene_to_file("res://scenes/end_2.tscn")
+		show_time_left()
 
 
 
@@ -56,3 +58,10 @@ func IncreaseScore( int ):
 	score = score + int
 	score_label.text = "Score:" + str(score)
 	print("score-" + str(score))
+
+
+func _on_countdown_timeout() -> void:
+	get_tree().change_scene_to_file("res://scenes/end_1.tscn")
+
+func show_time_left():
+	pass

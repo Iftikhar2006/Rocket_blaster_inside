@@ -69,6 +69,8 @@ func hit():
 #Events on game over
 func game_over():
 	print("GAme over")
+	get_tree().change_scene_to_file("res://scenes/end_1.tscn")
+
 
 
 func _on_hurt_timeout() -> void:
