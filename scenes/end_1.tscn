@@ -1,13 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://dli2glo7o30sn"]
+[gd_scene load_steps=3 format=3 uid="uid://dli2glo7o30sn"]
 
 [ext_resource type="Script" uid="uid://v60jbxj17rnj" path="res://scripts/end_1.gd" id="1_llgn8"]
+[ext_resource type="Texture2D" uid="uid://bt1s7am6ur2kt" path="res://assets/game_over_screen.jpg" id="2_27f1y"]
 
 [node name="END1" type="Node2D"]
 script = ExtResource("1_llgn8")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 1150.0
-offset_bottom = 650.0
+offset_right = 1160.0
+offset_bottom = 653.0
+color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="."]
 offset_left = 288.0
@@ -21,15 +23,22 @@ theme_override_font_sizes/font_size = 100
 text = "GAMe over"
 
 [node name="Button" type="Button" parent="."]
-offset_left = 470.0
-offset_top = 390.0
-offset_right = 678.0
-offset_bottom = 467.0
+z_index = 1
+offset_left = 472.0
+offset_top = 427.0
+offset_right = 680.0
+offset_bottom = 504.0
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0.796078, 0, 0, 1)
 theme_override_colors/icon_hover_color = Color(0.85098, 0, 0, 1)
 theme_override_colors/icon_pressed_color = Color(0, 0.431373, 0.894118, 1)
 theme_override_font_sizes/font_size = 50
 text = "Restart"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(578, 267.5)
+scale = Vector2(1.50521, 1.22917)
+texture = ExtResource("2_27f1y")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

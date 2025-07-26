@@ -1,10 +1,14 @@
-[gd_scene format=3 uid="uid://c0ubrwujaopce"]
+[gd_scene load_steps=2 format=3 uid="uid://c0ubrwujaopce"]
+
+[ext_resource type="Texture2D" uid="uid://dplbymktefbr0" path="res://assets/Task_Completed_screen.jpg" id="1_vxmud"]
 
 [node name="END2" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
+texture_filter = 1
 offset_right = 1150.0
 offset_bottom = 650.0
+color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="."]
 offset_left = 354.0
@@ -17,3 +21,8 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 text = "TAsk Completed
 "
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(575.5, 279.5)
+scale = Vector2(0.744141, 0.541992)
+texture = ExtResource("1_vxmud")

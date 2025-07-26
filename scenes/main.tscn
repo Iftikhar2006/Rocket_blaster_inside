@@ -56,7 +56,7 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="Countdown" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 300.0
 one_shot = true
 autostart = true
 
@@ -66,6 +66,23 @@ offset_top = -232.0
 offset_right = 578.0
 offset_bottom = -197.0
 text = "Time left:"
+
+[node name="Instructions" type="Label" parent="."]
+offset_left = -559.0
+offset_top = -293.0
+offset_right = -414.0
+offset_bottom = 306.0
+text = "Instrctions:
+1.Use arow keys to
+   move left and right
+2.Use space bar to
+    shoot
+3.Red and yellow are
+   enemies!!
+4.Green is friend
+   but a hostile one
+   and may attack if
+   provoked!!"
 
 [connection signal="timeout" from="Spawn_rate" to="." method="_on_spawn_rate_timeout"]
 [connection signal="area_entered" from="BackSide" to="BackSide" method="_on_area_entered"]
